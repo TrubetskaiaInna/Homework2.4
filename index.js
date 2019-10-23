@@ -19,18 +19,31 @@ const translateToTone = (str) => {
   let rest
   let resultNumber = []
   let result = ''
-  for (let i = 0; i < arrKeys.length; i++) {
-    for (let j = 0; j < 3; j++) {
-      if (Number(str) >= Number(arrKeys[i])) {
-        rest = str - arrKeys[i]
-        str = rest
-        resultNumber.push(obj[arrKeys[i]])
-        result = resultNumber.join('')
+  if (Number(someStr) >= 4000) {
+    for (let i = 0; i < arrKeys.length; i++) {
+      for (let j = 0; j < someStr / 1000; j++) {
+        if (Number(str) >= Number(arrKeys[i])) {
+          rest = str - arrKeys[i]
+          str = rest
+          resultNumber.push(obj[arrKeys[i]])
+          result = resultNumber.join('')
+        }
+      }
+    }
+  } else {
+    for (let i = 0; i < arrKeys.length; i++) {
+      for (let j = 0; j < 3; j++) {
+        if (Number(str) >= Number(arrKeys[i])) {
+          rest = str - arrKeys[i]
+          str = rest
+          resultNumber.push(obj[arrKeys[i]])
+          result = resultNumber.join('')
+        }
       }
     }
   }
   return result
 }
-let someStr = '2019'
+let someStr = '4019'
 let functionResult = translateToTone(someStr)
 console.log(functionResult)
